@@ -1,0 +1,10 @@
+{
+  "name": "content-site-ops",
+  "displayName": "Content Site Ops",
+  "version": "0.1.0",
+  "description": "Fact-check AI-written articles before you publish: lists every checkable claim (JA/EN), separates hidden text, and labels each claim confirmed / reported / unverified / contradicted.",
+  "author": { "name": "Content Site Ops", "url": "https://contentsiteops.gumroad.com" },
+  "homepage": "https://contentsiteops.gumroad.com",
+  "license": "MIT",
+  "keywords": ["fact-check", "content audit", "seo", "editorial", "ai content"]
+}

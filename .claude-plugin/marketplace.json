@@ -1,0 +1,17 @@
+{
+  "name": "content-site-ops",
+  "owner": {
+    "name": "Content Site Ops",
+    "url": "https://contentsiteops.gumroad.com"
+  },
+  "plugins": [
+    {
+      "name": "content-site-ops",
+      "source": "./",
+      "description": "Fact-check AI-written articles before you publish (free skill: content-fact-auditor)."
+    }
+  ],
+  "metadata": {
+    "description": "Free Claude Agent Skills for people who run content sites, from Content Site Ops."
+  }
+}
