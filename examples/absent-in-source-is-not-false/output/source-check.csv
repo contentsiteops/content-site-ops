@@ -1,0 +1,12 @@
+﻿id,line,candidate,text,evidence,notes
+C001,8,not-found-in-provided-sources,Maple Leaf Zoo is the best zoo in the region for families with toddlers.,,
+C002,12,contradicted-candidate,"Adult admission is $18, and children aged 3 to 12 pay $12.",source-notes.txt:5  || source-notes.txt:6  || source-notes.txt:8 ,"price $12 found at source-notes.txt:6 | price $18 not found; strongly related source values: $22 (source-notes.txt:5), $95 (source-notes.txt:8), $55 (source-notes.txt:8) | some values/passages match and others do not: read all cited lines"
+C003,13,supported-candidate,Children under 3 get in free.,source-notes.txt:7 ,price get in free found at source-notes.txt:7
+C004,14,supported-candidate,The zoo opens at 9:00 a.m. and closes at 5:00 p.m. every day.,source-notes.txt:11 ,"time 9:00 a.m., 5:00 p.m. found at source-notes.txt:11"
+C005,18,not-found-in-provided-sources,The zoo has a splash pad that opens in summer.,,
+C006,19,not-found-in-provided-sources,"There is no nursing room at Maple Leaf Zoo, so plan to feed your baby before you arrive.",,absence claim: silence in the sources does not prove absence; check the places listed in references/verification-by-claim-type.md
+C007,20,supported-candidate,Stroller rental is available at the main gate.,source-notes.txt:15  || source-notes.txt:16 all key terms present (no values to compare) || source-notes.txt:19 ,state claim: a saved copy is not enough; confirm on the live rendered page
+C008,22,not-checkable-against-sources,Our visit,,"first-person experience: sources cannot confirm it; needs the writer's own record (date, photo, receipt) or a neutral rewrite"
+C009,24,not-checkable-against-sources,"When we visited last spring, my kids loved feeding the giraffes at the Savanna Deck.",,"first-person experience: sources cannot confirm it; needs the writer's own record (date, photo, receipt) or a neutral rewrite"
+C010,25,not-found-in-provided-sources,"According to a survey, 9 out of 10 parents say the zoo is stroller-friendly.",,
+C011,29,mentioned-needs-reading,"Annual passes are on sale until December 31, 2026.",source-notes.txt:8 ,

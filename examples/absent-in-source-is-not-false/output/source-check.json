@@ -1,0 +1,280 @@
+{
+  "tool": "content-fact-auditor/check_against_sources.py",
+  "version": "0.1.0",
+  "claims_file": "claims.json",
+  "article": "article.md",
+  "sources_files": 1,
+  "ledger_rows": 0,
+  "checked_on": "2026-11-25",
+  "disclaimer": "These are CANDIDATES from text matching. Open every cited file:line and confirm before labeling. 'not-found-in-provided-sources' means only that the provided files do not mention it; it is not 'false'. A saved copy cannot confirm a current state (sold out, open, closed): check the live rendered page.",
+  "counts": {
+    "not-found-in-provided-sources": 4,
+    "contradicted-candidate": 1,
+    "supported-candidate": 3,
+    "not-checkable-against-sources": 2,
+    "mentioned-needs-reading": 1
+  },
+  "results": [
+    {
+      "id": "C001",
+      "line": 8,
+      "text": "Maple Leaf Zoo is the best zoo in the region for families with toddlers.",
+      "types": [
+        "superlative"
+      ],
+      "risk": "medium",
+      "evidence": [],
+      "hidden_matches": [],
+      "notes": [],
+      "value_comparison": [],
+      "candidate": "not-found-in-provided-sources"
+    },
+    {
+      "id": "C002",
+      "line": 12,
+      "text": "Adult admission is $18, and children aged 3 to 12 pay $12.",
+      "types": [
+        "price"
+      ],
+      "risk": "medium",
+      "evidence": [
+        {
+          "file": "source-notes.txt",
+          "line": 5,
+          "text": "Admission: Adults $22",
+          "matched_terms": [
+            "adult",
+            "admission"
+          ]
+        },
+        {
+          "file": "source-notes.txt",
+          "line": 6,
+          "text": "Children (3-12): $12",
+          "matched_terms": [
+            "children"
+          ]
+        },
+        {
+          "file": "source-notes.txt",
+          "line": 8,
+          "text": "Annual pass: Adults $95, Children $55",
+          "matched_terms": [
+            "adult",
+            "children"
+          ]
+        }
+      ],
+      "hidden_matches": [],
+      "notes": [
+        "some values/passages match and others do not: read all cited lines"
+      ],
+      "value_comparison": [
+        "price $12 found at source-notes.txt:6",
+        "price $18 not found; strongly related source values: $22 (source-notes.txt:5), $95 (source-notes.txt:8), $55 (source-notes.txt:8)"
+      ],
+      "candidate": "contradicted-candidate"
+    },
+    {
+      "id": "C003",
+      "line": 13,
+      "text": "Children under 3 get in free.",
+      "types": [
+        "price"
+      ],
+      "risk": "medium",
+      "evidence": [
+        {
+          "file": "source-notes.txt",
+          "line": 7,
+          "text": "Under 3: free",
+          "matched_terms": [
+            "free"
+          ]
+        }
+      ],
+      "hidden_matches": [],
+      "notes": [],
+      "value_comparison": [
+        "price get in free found at source-notes.txt:7"
+      ],
+      "candidate": "supported-candidate"
+    },
+    {
+      "id": "C004",
+      "line": 14,
+      "text": "The zoo opens at 9:00 a.m. and closes at 5:00 p.m. every day.",
+      "types": [
+        "time"
+      ],
+      "risk": "medium",
+      "evidence": [
+        {
+          "file": "source-notes.txt",
+          "line": 11,
+          "text": "Open daily 9:00 a.m. - 5:00 p.m.",
+          "matched_terms": [
+            "open"
+          ]
+        }
+      ],
+      "hidden_matches": [],
+      "notes": [],
+      "value_comparison": [
+        "time 9:00 a.m., 5:00 p.m. found at source-notes.txt:11"
+      ],
+      "candidate": "supported-candidate"
+    },
+    {
+      "id": "C005",
+      "line": 18,
+      "text": "The zoo has a splash pad that opens in summer.",
+      "types": [
+        "entity_attribute",
+        "time"
+      ],
+      "risk": "medium",
+      "evidence": [],
+      "hidden_matches": [],
+      "notes": [],
+      "value_comparison": [],
+      "candidate": "not-found-in-provided-sources"
+    },
+    {
+      "id": "C006",
+      "line": 19,
+      "text": "There is no nursing room at Maple Leaf Zoo, so plan to feed your baby before you arrive.",
+      "types": [
+        "absence",
+        "entity_attribute"
+      ],
+      "risk": "high",
+      "evidence": [],
+      "hidden_matches": [],
+      "notes": [
+        "absence claim: silence in the sources does not prove absence; check the places listed in references/verification-by-claim-type.md"
+      ],
+      "value_comparison": [],
+      "candidate": "not-found-in-provided-sources"
+    },
+    {
+      "id": "C007",
+      "line": 20,
+      "text": "Stroller rental is available at the main gate.",
+      "types": [
+        "availability"
+      ],
+      "risk": "medium",
+      "evidence": [
+        {
+          "file": "source-notes.txt",
+          "line": 15,
+          "text": "Restrooms at the main gate and the Savanna Deck",
+          "matched_terms": [
+            "main",
+            "gate"
+          ]
+        },
+        {
+          "file": "source-notes.txt",
+          "line": 16,
+          "text": "Stroller rental at the main gate ($8 per day)",
+          "matched_terms": [
+            "stroller",
+            "rental",
+            "main",
+            "gate"
+          ],
+          "reading": "all key terms present (no values to compare)"
+        },
+        {
+          "file": "source-notes.txt",
+          "line": 19,
+          "text": "Lockers at the main gate",
+          "matched_terms": [
+            "main",
+            "gate"
+          ]
+        }
+      ],
+      "hidden_matches": [],
+      "notes": [
+        "state claim: a saved copy is not enough; confirm on the live rendered page"
+      ],
+      "value_comparison": [],
+      "candidate": "supported-candidate"
+    },
+    {
+      "id": "C008",
+      "line": 22,
+      "text": "Our visit",
+      "types": [
+        "experience"
+      ],
+      "risk": "medium",
+      "evidence": [],
+      "hidden_matches": [],
+      "notes": [
+        "first-person experience: sources cannot confirm it; needs the writer's own record (date, photo, receipt) or a neutral rewrite"
+      ],
+      "candidate": "not-checkable-against-sources"
+    },
+    {
+      "id": "C009",
+      "line": 24,
+      "text": "When we visited last spring, my kids loved feeding the giraffes at the Savanna Deck.",
+      "types": [
+        "experience",
+        "entity_attribute"
+      ],
+      "risk": "high",
+      "evidence": [],
+      "hidden_matches": [],
+      "notes": [
+        "first-person experience: sources cannot confirm it; needs the writer's own record (date, photo, receipt) or a neutral rewrite"
+      ],
+      "candidate": "not-checkable-against-sources"
+    },
+    {
+      "id": "C010",
+      "line": 25,
+      "text": "According to a survey, 9 out of 10 parents say the zoo is stroller-friendly.",
+      "types": [
+        "experience",
+        "statistic",
+        "availability"
+      ],
+      "risk": "high",
+      "evidence": [],
+      "hidden_matches": [],
+      "notes": [],
+      "value_comparison": [],
+      "candidate": "not-found-in-provided-sources"
+    },
+    {
+      "id": "C011",
+      "line": 29,
+      "text": "Annual passes are on sale until December 31, 2026.",
+      "types": [
+        "time",
+        "time_sensitive"
+      ],
+      "risk": "medium",
+      "evidence": [
+        {
+          "file": "source-notes.txt",
+          "line": 8,
+          "text": "Annual pass: Adults $95, Children $55",
+          "matched_terms": [
+            "annual",
+            "pass"
+          ]
+        }
+      ],
+      "hidden_matches": [],
+      "notes": [],
+      "value_comparison": [],
+      "candidate": "mentioned-needs-reading"
+    }
+  ]
+}

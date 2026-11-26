@@ -1,0 +1,417 @@
+{
+  "tool": "content-fact-auditor/extract_claims.py",
+  "version": "0.1.0",
+  "source_file": "article.md",
+  "format": "md",
+  "lang_option": "auto",
+  "lang_detected": "en",
+  "sentences_scanned": 17,
+  "counts": {
+    "total": 11,
+    "by_risk": {
+      "high": 3,
+      "medium": 8,
+      "low": 0
+    },
+    "by_type": {
+      "superlative": 1,
+      "price": 2,
+      "time": 3,
+      "entity_attribute": 3,
+      "absence": 1,
+      "availability": 2,
+      "experience": 3,
+      "statistic": 1,
+      "time_sensitive": 1
+    }
+  },
+  "skipped": {
+    "disclosed_fiction_section": 0,
+    "sources_or_method_section": 0,
+    "known": 0
+  },
+  "audit_date_markers": [],
+  "audit_date_marker_note": "",
+  "hidden_text": [],
+  "claims": [
+    {
+      "id": "C001",
+      "line": 8,
+      "in_heading": false,
+      "text": "Maple Leaf Zoo is the best zoo in the region for families with toddlers.",
+      "types": [
+        "superlative"
+      ],
+      "primary_type": "superlative",
+      "risk": "medium",
+      "reasons": [
+        "evaluative superlative ('best'): opinion unless sourced"
+      ],
+      "how_to_verify": [
+        "Needs a named, dated ranking source; otherwise remove or rewrite as a neutral description."
+      ],
+      "values": [],
+      "entity_terms": [
+        "maple leaf zoo"
+      ],
+      "attr_terms": [
+        "region",
+        "family",
+        "toddler"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C002",
+      "line": 12,
+      "in_heading": false,
+      "text": "Adult admission is $18, and children aged 3 to 12 pay $12.",
+      "types": [
+        "price"
+      ],
+      "primary_type": "price",
+      "risk": "medium",
+      "reasons": [
+        "price ($18): prices change; record date and tax/age conditions"
+      ],
+      "how_to_verify": [
+        "Operator's current price page; note tax, age bands, date. Numbers may be read from a non-JS fetch."
+      ],
+      "values": [
+        {
+          "kind": "price",
+          "value": 18.0,
+          "unit": "USD",
+          "raw": "$18"
+        },
+        {
+          "kind": "price",
+          "value": 12.0,
+          "unit": "USD",
+          "raw": "$12"
+        }
+      ],
+      "entity_terms": [],
+      "attr_terms": [
+        "adult",
+        "admission",
+        "children",
+        "aged",
+        "pay"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C003",
+      "line": 13,
+      "in_heading": false,
+      "text": "Children under 3 get in free.",
+      "types": [
+        "price"
+      ],
+      "primary_type": "price",
+      "risk": "medium",
+      "reasons": [
+        "price (get in free): prices change; record date and tax/age conditions"
+      ],
+      "how_to_verify": [
+        "Operator's current price page; note tax, age bands, date. Numbers may be read from a non-JS fetch."
+      ],
+      "values": [
+        {
+          "kind": "price",
+          "value": 0.0,
+          "unit": null,
+          "raw": "get in free"
+        }
+      ],
+      "entity_terms": [],
+      "attr_terms": [
+        "children",
+        "free"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C004",
+      "line": 14,
+      "in_heading": false,
+      "text": "The zoo opens at 9:00 a.m. and closes at 5:00 p.m. every day.",
+      "types": [
+        "time"
+      ],
+      "primary_type": "time",
+      "risk": "medium",
+      "reasons": [
+        "time/hours/date (9:00 a.m.): confirm on the operator's calendar incl. exceptions"
+      ],
+      "how_to_verify": [
+        "Operator's hours/calendar page incl. holiday and seasonal exceptions; note the date checked."
+      ],
+      "values": [
+        {
+          "kind": "time",
+          "value": 540,
+          "unit": "min",
+          "raw": "9:00 a.m."
+        },
+        {
+          "kind": "time",
+          "value": 1020,
+          "unit": "min",
+          "raw": "5:00 p.m."
+        }
+      ],
+      "entity_terms": [],
+      "attr_terms": [
+        "zoo",
+        "open",
+        "close"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C005",
+      "line": 18,
+      "in_heading": false,
+      "text": "The zoo has a splash pad that opens in summer.",
+      "types": [
+        "entity_attribute",
+        "time"
+      ],
+      "primary_type": "entity_attribute",
+      "risk": "medium",
+      "reasons": [
+        "facility feature ('splash pad'): confirm on the facility's own page",
+        "time/hours/date (opens): confirm on the operator's calendar incl. exceptions"
+      ],
+      "how_to_verify": [
+        "Entity's own page; identify same-name entities by 2 of address / operator / opening year.",
+        "Operator's hours/calendar page incl. holiday and seasonal exceptions; note the date checked."
+      ],
+      "values": [],
+      "entity_terms": [],
+      "attr_terms": [
+        "zoo",
+        "splash",
+        "pad",
+        "open",
+        "summer"
+      ],
+      "feature_terms": [
+        "splash pad"
+      ],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C006",
+      "line": 19,
+      "in_heading": false,
+      "text": "There is no nursing room at Maple Leaf Zoo, so plan to feed your baby before you arrive.",
+      "types": [
+        "absence",
+        "entity_attribute"
+      ],
+      "primary_type": "absence",
+      "risk": "high",
+      "reasons": [
+        "absence claim ('There is no'): 'not found' is not 'does not exist'; check all places first",
+        "named entity + attribute (maple leaf zoo / nursing room): confirm on the entity's own page"
+      ],
+      "how_to_verify": [
+        "Before writing 'none/no': rendered listing, campaign pages, per-location pages, your own other articles.",
+        "Entity's own page; identify same-name entities by 2 of address / operator / opening year."
+      ],
+      "values": [],
+      "entity_terms": [
+        "maple leaf zoo"
+      ],
+      "attr_terms": [
+        "nursing",
+        "room",
+        "feed",
+        "baby"
+      ],
+      "feature_terms": [
+        "nursing room"
+      ],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C007",
+      "line": 20,
+      "in_heading": false,
+      "text": "Stroller rental is available at the main gate.",
+      "types": [
+        "availability"
+      ],
+      "primary_type": "availability",
+      "risk": "medium",
+      "reasons": [
+        "availability/permission ('available'): confirm with the operator's current rules"
+      ],
+      "how_to_verify": [
+        "State words (sold out, closed, open now) must be seen on the live rendered page, not a raw fetch."
+      ],
+      "values": [],
+      "entity_terms": [],
+      "attr_terms": [
+        "stroller",
+        "rental",
+        "available",
+        "main",
+        "gate"
+      ],
+      "feature_terms": [
+        "stroller"
+      ],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C008",
+      "line": 22,
+      "in_heading": true,
+      "text": "Our visit",
+      "types": [
+        "experience"
+      ],
+      "primary_type": "experience",
+      "risk": "medium",
+      "reasons": [
+        "experience section heading ('Our visit'): every sentence under it needs a record"
+      ],
+      "how_to_verify": [
+        "Needs the writer's own record (date, photo, receipt). Without it rewrite as neutral fact."
+      ],
+      "values": [],
+      "entity_terms": [],
+      "attr_terms": [],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C009",
+      "line": 24,
+      "in_heading": false,
+      "text": "When we visited last spring, my kids loved feeding the giraffes at the Savanna Deck.",
+      "types": [
+        "experience",
+        "entity_attribute"
+      ],
+      "primary_type": "experience",
+      "risk": "high",
+      "reasons": [
+        "first-person experience (When we visited): needs the writer's own record or a neutral rewrite",
+        "named entity + attribute (savanna deck / feeding): confirm on the entity's own page"
+      ],
+      "how_to_verify": [
+        "Needs the writer's own record (date, photo, receipt). Without it rewrite as neutral fact.",
+        "Entity's own page; identify same-name entities by 2 of address / operator / opening year."
+      ],
+      "values": [],
+      "entity_terms": [
+        "savanna deck"
+      ],
+      "attr_terms": [
+        "last",
+        "spring",
+        "kid",
+        "feeding",
+        "giraffe"
+      ],
+      "feature_terms": [
+        "feeding"
+      ],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C010",
+      "line": 25,
+      "in_heading": false,
+      "text": "According to a survey, 9 out of 10 parents say the zoo is stroller-friendly.",
+      "types": [
+        "experience",
+        "statistic",
+        "availability"
+      ],
+      "primary_type": "experience",
+      "risk": "high",
+      "reasons": [
+        "sentence inside a first-person experience section: needs the writer's own record or removal",
+        "statistic/attribution ('According to') without a named, dated source",
+        "availability/permission ('stroller-friendly'): confirm with the operator's current rules"
+      ],
+      "how_to_verify": [
+        "Needs the writer's own record (date, photo, receipt). Without it rewrite as neutral fact.",
+        "Trace to the original study/survey (publisher, year, sample). Search snippets are not sources.",
+        "State words (sold out, closed, open now) must be seen on the live rendered page, not a raw fetch."
+      ],
+      "values": [],
+      "entity_terms": [],
+      "attr_terms": [
+        "according",
+        "survey",
+        "parent",
+        "say",
+        "zoo",
+        "stroller-friendly"
+      ],
+      "feature_terms": [
+        "stroller"
+      ],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C011",
+      "line": 29,
+      "in_heading": false,
+      "text": "Annual passes are on sale until December 31, 2026.",
+      "types": [
+        "time",
+        "time_sensitive"
+      ],
+      "primary_type": "time",
+      "risk": "medium",
+      "reasons": [
+        "time/hours/date (December 31, 2026): confirm on the operator's calendar incl. exceptions",
+        "time-sensitive ('on sale'): add an end date / re-check date"
+      ],
+      "how_to_verify": [
+        "Operator's hours/calendar page incl. holiday and seasonal exceptions; note the date checked.",
+        "Record the end date and set a re-check date; re-verify before every republish."
+      ],
+      "values": [
+        {
+          "kind": "date",
+          "value": "2026-12-31",
+          "unit": null,
+          "raw": "December 31, 2026"
+        }
+      ],
+      "entity_terms": [],
+      "attr_terms": [
+        "annual",
+        "pass",
+        "sale"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    }
+  ],
+  "min_risk": "low"
+}
