@@ -1,0 +1,500 @@
+{
+  "tool": "content-fact-auditor/extract_claims.py",
+  "version": "0.1.0",
+  "source_file": "article.html",
+  "format": "html",
+  "lang_option": "auto",
+  "lang_detected": "ja",
+  "sentences_scanned": 19,
+  "counts": {
+    "total": 13,
+    "by_risk": {
+      "high": 5,
+      "medium": 8,
+      "low": 0
+    },
+    "by_type": {
+      "superlative": 1,
+      "price": 3,
+      "quantity": 2,
+      "availability": 1,
+      "time_sensitive": 2,
+      "time": 3,
+      "entity_attribute": 3,
+      "absence": 1,
+      "experience": 3
+    }
+  },
+  "skipped": {
+    "disclosed_fiction_section": 0,
+    "sources_or_method_section": 0,
+    "known": 0
+  },
+  "audit_date_markers": [],
+  "audit_date_marker_note": "",
+  "hidden_text": [
+    {
+      "id": "H01",
+      "kind": "html-comment",
+      "line": 15,
+      "text": "2023年の告知（掲載終了）：入館料 大人2,000円・小人1,000円。年間パスポートは完売しました。",
+      "note": "hidden text, not visible to readers: do not audit it as published content and do not use it as evidence; check whether it is stale and should be removed",
+      "claim_types_inside": [
+        "availability",
+        "price",
+        "time_sensitive"
+      ]
+    },
+    {
+      "id": "H02",
+      "kind": "hidden-element",
+      "line": 18,
+      "text": "本日の当日券は売り切れました",
+      "note": "hidden text, not visible to readers: do not audit it as published content and do not use it as evidence; check whether it is stale and should be removed",
+      "claim_types_inside": [
+        "availability"
+      ],
+      "tag": "div"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C001",
+      "line": 12,
+      "in_heading": false,
+      "text": "サンプル水族館は、県内でいちばん大きい水族館です。",
+      "types": [
+        "superlative"
+      ],
+      "primary_type": "superlative",
+      "risk": "high",
+      "reasons": [
+        "superlative/ranking ('いちばん') needs a named, dated source"
+      ],
+      "how_to_verify": [
+        "Needs a named, dated ranking source; otherwise remove or rewrite as a neutral description."
+      ],
+      "values": [],
+      "entity_terms": [
+        "サンプル水族館",
+        "水族館"
+      ],
+      "attr_terms": [
+        "県内"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C002",
+      "line": 16,
+      "in_heading": false,
+      "text": "入館料は大人2,400円、小学生1,200円です。",
+      "types": [
+        "price"
+      ],
+      "primary_type": "price",
+      "risk": "medium",
+      "reasons": [
+        "price (2,400円): prices change; record date and tax/age conditions"
+      ],
+      "how_to_verify": [
+        "Operator's current price page; note tax, age bands, date. Numbers may be read from a non-JS fetch."
+      ],
+      "values": [
+        {
+          "kind": "price",
+          "value": 2400.0,
+          "unit": "JPY",
+          "raw": "2,400円"
+        },
+        {
+          "kind": "price",
+          "value": 1200.0,
+          "unit": "JPY",
+          "raw": "1,200円"
+        }
+      ],
+      "entity_terms": [],
+      "attr_terms": [
+        "入館料",
+        "大人",
+        "小学生"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C003",
+      "line": 16,
+      "in_heading": false,
+      "text": "3歳以下は無料です。",
+      "types": [
+        "price",
+        "quantity"
+      ],
+      "primary_type": "price",
+      "risk": "medium",
+      "reasons": [
+        "price (無料): prices change; record date and tax/age conditions",
+        "quantity (3歳)"
+      ],
+      "how_to_verify": [
+        "Operator's current price page; note tax, age bands, date. Numbers may be read from a non-JS fetch.",
+        "Operator's spec/access page; quantities from maps or reviews are only 'reported'."
+      ],
+      "values": [
+        {
+          "kind": "price",
+          "value": 0.0,
+          "unit": null,
+          "raw": "無料"
+        },
+        {
+          "kind": "quantity",
+          "value": 3.0,
+          "unit": "age",
+          "raw": "3歳"
+        }
+      ],
+      "entity_terms": [],
+      "attr_terms": [
+        "歳以下",
+        "無料"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C004",
+      "line": 17,
+      "in_heading": false,
+      "text": "年間パスポートは現在販売中で、大人6,000円です。",
+      "types": [
+        "availability",
+        "price",
+        "time_sensitive"
+      ],
+      "primary_type": "availability",
+      "risk": "high",
+      "reasons": [
+        "state word ('販売中') changes over time; must be seen on the live rendered page",
+        "price (6,000円): prices change; record date and tax/age conditions",
+        "time-sensitive ('現在'): add an end date / re-check date"
+      ],
+      "how_to_verify": [
+        "State words (sold out, closed, open now) must be seen on the live rendered page, not a raw fetch.",
+        "Operator's current price page; note tax, age bands, date. Numbers may be read from a non-JS fetch.",
+        "Record the end date and set a re-check date; re-verify before every republish."
+      ],
+      "values": [
+        {
+          "kind": "price",
+          "value": 6000.0,
+          "unit": "JPY",
+          "raw": "6,000円"
+        }
+      ],
+      "entity_terms": [],
+      "attr_terms": [
+        "年間",
+        "現在販売中",
+        "大人",
+        "パスポート"
+      ],
+      "feature_terms": [
+        "年間パスポート"
+      ],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C005",
+      "line": 21,
+      "in_heading": false,
+      "text": "営業時間は9:30〜17:00（最終入館16:30）です。",
+      "types": [
+        "time"
+      ],
+      "primary_type": "time",
+      "risk": "medium",
+      "reasons": [
+        "time/hours/date (9:30): confirm on the operator's calendar incl. exceptions"
+      ],
+      "how_to_verify": [
+        "Operator's hours/calendar page incl. holiday and seasonal exceptions; note the date checked."
+      ],
+      "values": [
+        {
+          "kind": "time",
+          "value": 570,
+          "unit": "min",
+          "raw": "9:30"
+        },
+        {
+          "kind": "time",
+          "value": 1020,
+          "unit": "min",
+          "raw": "17:00"
+        },
+        {
+          "kind": "time",
+          "value": 990,
+          "unit": "min",
+          "raw": "16:30"
+        }
+      ],
+      "entity_terms": [
+        "最終入館"
+      ],
+      "attr_terms": [
+        "営業時間"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C006",
+      "line": 21,
+      "in_heading": false,
+      "text": "毎週水曜日は休館日です。",
+      "types": [
+        "time"
+      ],
+      "primary_type": "time",
+      "risk": "medium",
+      "reasons": [
+        "time/hours/date (水曜): confirm on the operator's calendar incl. exceptions"
+      ],
+      "how_to_verify": [
+        "Operator's hours/calendar page incl. holiday and seasonal exceptions; note the date checked."
+      ],
+      "values": [],
+      "entity_terms": [],
+      "attr_terms": [
+        "毎週水曜日",
+        "休館日"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C007",
+      "line": 24,
+      "in_heading": false,
+      "text": "授乳室は2階のイルカプール横にあります。",
+      "types": [
+        "entity_attribute",
+        "quantity"
+      ],
+      "primary_type": "entity_attribute",
+      "risk": "medium",
+      "reasons": [
+        "named entity + attribute (イルカプール / 授乳室): confirm on the entity's own page",
+        "quantity (2階) about a named entity"
+      ],
+      "how_to_verify": [
+        "Entity's own page; identify same-name entities by 2 of address / operator / opening year.",
+        "Operator's spec/access page; quantities from maps or reviews are only 'reported'."
+      ],
+      "values": [
+        {
+          "kind": "quantity",
+          "value": 2.0,
+          "unit": "floor",
+          "raw": "2階"
+        }
+      ],
+      "entity_terms": [
+        "イルカプール"
+      ],
+      "attr_terms": [
+        "授乳室"
+      ],
+      "feature_terms": [
+        "授乳室",
+        "プール"
+      ],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C008",
+      "line": 24,
+      "in_heading": false,
+      "text": "ベビーカーの貸し出しもあります。",
+      "types": [
+        "entity_attribute"
+      ],
+      "primary_type": "entity_attribute",
+      "risk": "medium",
+      "reasons": [
+        "facility feature ('ベビーカー'): confirm on the facility's own page"
+      ],
+      "how_to_verify": [
+        "Entity's own page; identify same-name entities by 2 of address / operator / opening year."
+      ],
+      "values": [],
+      "entity_terms": [],
+      "attr_terms": [
+        "ベビーカー"
+      ],
+      "feature_terms": [
+        "ベビーカー"
+      ],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C009",
+      "line": 25,
+      "in_heading": false,
+      "text": "館内にレストランはありません。",
+      "types": [
+        "absence",
+        "entity_attribute"
+      ],
+      "primary_type": "absence",
+      "risk": "high",
+      "reasons": [
+        "absence claim ('ありません'): 'not found' is not 'does not exist'; check all places first",
+        "facility feature ('レストラン'): confirm on the facility's own page"
+      ],
+      "how_to_verify": [
+        "Before writing 'none/no': rendered listing, campaign pages, per-location pages, your own other articles.",
+        "Entity's own page; identify same-name entities by 2 of address / operator / opening year."
+      ],
+      "values": [],
+      "entity_terms": [],
+      "attr_terms": [
+        "館内",
+        "レストラン"
+      ],
+      "feature_terms": [
+        "レストラン"
+      ],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C010",
+      "line": 27,
+      "in_heading": true,
+      "text": "我が家の体験",
+      "types": [
+        "experience"
+      ],
+      "primary_type": "experience",
+      "risk": "medium",
+      "reasons": [
+        "experience section heading ('我が家'): every sentence under it needs a record"
+      ],
+      "how_to_verify": [
+        "Needs the writer's own record (date, photo, receipt). Without it rewrite as neutral fact."
+      ],
+      "values": [],
+      "entity_terms": [],
+      "attr_terms": [
+        "体験"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C011",
+      "line": 28,
+      "in_heading": false,
+      "text": "先月、我が家も子どもと行ってきました。",
+      "types": [
+        "experience"
+      ],
+      "primary_type": "experience",
+      "risk": "high",
+      "reasons": [
+        "first-person experience (我が家): needs the writer's own record or a neutral rewrite"
+      ],
+      "how_to_verify": [
+        "Needs the writer's own record (date, photo, receipt). Without it rewrite as neutral fact."
+      ],
+      "values": [],
+      "entity_terms": [],
+      "attr_terms": [
+        "先月"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C012",
+      "line": 28,
+      "in_heading": false,
+      "text": "イルカショーは最前列で見られました。",
+      "types": [
+        "experience"
+      ],
+      "primary_type": "experience",
+      "risk": "high",
+      "reasons": [
+        "sentence inside a first-person experience section: needs the writer's own record or removal"
+      ],
+      "how_to_verify": [
+        "Needs the writer's own record (date, photo, receipt). Without it rewrite as neutral fact."
+      ],
+      "values": [],
+      "entity_terms": [],
+      "attr_terms": [
+        "最前列",
+        "イルカショー"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    },
+    {
+      "id": "C013",
+      "line": 31,
+      "in_heading": false,
+      "text": "12月25日まで期間限定で、クリスマス特別展示を開催中です。",
+      "types": [
+        "time",
+        "time_sensitive"
+      ],
+      "primary_type": "time",
+      "risk": "medium",
+      "reasons": [
+        "time/hours/date (12月25日): confirm on the operator's calendar incl. exceptions",
+        "time-sensitive ('12月25日まで'): add an end date / re-check date"
+      ],
+      "how_to_verify": [
+        "Operator's hours/calendar page incl. holiday and seasonal exceptions; note the date checked.",
+        "Record the end date and set a re-check date; re-verify before every republish."
+      ],
+      "values": [
+        {
+          "kind": "date",
+          "value": "XXXX-12-25",
+          "unit": null,
+          "raw": "12月25日"
+        }
+      ],
+      "entity_terms": [],
+      "attr_terms": [
+        "期間限定",
+        "特別展示",
+        "開催中",
+        "クリスマス"
+      ],
+      "feature_terms": [],
+      "status": "unverified",
+      "known": false
+    }
+  ],
+  "min_risk": "low"
+}
